@@ -29,6 +29,7 @@ setup(
         'flask==0.10.1',
         'pymongo==2.6.3',
         'flask-pymongo==0.3.0',
+        'flask-testing'
     ],
     tests_require=['redis'],
     classifiers=[

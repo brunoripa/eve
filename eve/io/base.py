@@ -9,6 +9,8 @@
     :copyright: (c) 2013 by Nicola Iarocci.
     :license: BSD, see LICENSE for more details.
 """
+from abc import ABCMeta
+from abc import abstractmethod
 from eve.utils import config, debug_error_message
 from flask import request, abort
 
@@ -316,3 +318,17 @@ class DataLayer(object):
                         query, {auth_field: request_auth_value}
                     )
         return datasource, query, fields
+
+
+class AbstractModel(object):
+    __metaclass__ = ABCMeta
+
+    @abstractmethod
+    def __setitem__(self, key, value):
+        raise NotImplementedError
+
+    
+    @abstractmethod
+    def __getitem__(self, key):
+        raise NotImplementedError
+
